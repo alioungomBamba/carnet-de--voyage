@@ -1,0 +1,24 @@
+/* 1. Fixer le Box-sizing sur "border-box" pour l'ensemble des balises 
+   Cela permet que les bordures et le padding n'augmentent pas la taille des boîtes */
+* {
+    box-sizing: border-box;
+}
+
+/* 2. on Supprime toutes les marges (intérieures et extérieures) du body */
+body {
+    margin: 0;
+    padding: 0;
+    
+    
+    
+}
+
+/* 3. Mise en forme des images(img)
+   - display: block pour supprimer l'espace vide sous les éléments
+   - max-width: 100% pour qu'ils ne débordent jamais de leur conteneur
+   - height: auto pour conserver les proportions d'origine */
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

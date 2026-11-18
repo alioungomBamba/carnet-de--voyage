@@ -1,0 +1,238 @@
+/* ============
+    VARIABLES 
+   ============*/
+:root {
+    --primary-color: #0057b3d7;
+    --secondary-color: #ffcc00;
+    --text-color: #222222;
+    --bg-color: #ffffff;
+    --footer-bg: #333333;
+    --main-padding: 2rem;
+}
+
+/* ===========================
+    STRUCTURE GLOBALE (Grid)
+   ===========================*/
+body {
+    background-color: var(--bg-color);
+    display: grid; 
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+}
+
+header { grid-area: header; }
+footer { grid-area: footer; }
+
+main { 
+    grid-area: main; 
+    padding: var(--main-padding);
+    max-width: 1000px;
+    margin: 0 auto; 
+    width: 100%; /* S'assure que le contenu occupe l'espace */
+}
+
+/* =====================
+    NAVIGATION (Flexbox)
+   ==================== */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+    gap: 2rem;
+    background-color: var(--primary-color);
+    margin: 0; /* Nettoyage des marges par défaut */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* =====================
+    LISTES (ul et ol)
+   ==================== */
+/* On cible uniquement les listes de contenus, pas celles du menu */
+main ul, main ol {
+    display: inline-block;
+    text-align: left;
+    padding-left: 30px;
+    margin: 20px auto;
+}
+
+section, article {
+    text-align: center; /* Pour centrer la bloc de la liste */
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* =======================
+    IMAGES (Optimisées)
+   ======================*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Galerie */
+.galerie-horizontale article img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Style décoratif pour les images dans le corps de texte */
+main > img, figure img {
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ====================
+    STYLE DU TABLEAU
+   ====================*/
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tbody tr:nth-child(even) { background-color: #f3f3f3; }
+tbody tr:hover { background-color: #f1f1f1; }
+
+/* =================
+    FOOTER
+   ================= */
+footer {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 { 
+    color: var(--secondary-color); 
+}
+.footer-section a { 
+    color: #eef6f2; 
+    text-decoration: none; 
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+}
+
+/* =============
+    RESPONSIVE
+   =============*/
+@media (max-width: 768px) {
+    .galerie-horizontale, nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#signup-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+
+input.valide {
+    border: 2px solid #00853f !important; /* La couleur verte pour la validation */
+    outline: none;
+}
+
+input.invalide {
+    border: 2px solid #e31b23 !important; /* La couleur rouge pour l'erreur */
+    outline: none;
+}
+
+.error-msg {
+    color: #e31b23;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 5px;
+    height: 1rem; /* Pour eviter que le formulaire bouge quand le texte apparaît */
+}
+
+#submitBtn {
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
